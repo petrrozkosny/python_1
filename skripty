@@ -1,0 +1,48 @@
+#import modulu
+import requests
+import re
+from bs4  import BeautifulSoup as bs
+
+mesto = input('Vloz id mesta pro zjisteni pocasi a stiskni klavesu ENTER ')
+
+# Otestuj kod
+try:
+    #Pokud lze mesto prevest na cislo
+    int(mesto)
+
+    
+    r = requests.get(rf'https://www.meteocentrum.cz/predpoved-pocasi/cz/{mesto}')
+
+    # Pokud stranka funguje, pokracuj dale
+    if r.status_code == 200:
+
+
+        pocasi = r'Aktuálně\s.*\s.*\s.*\s.*\s.*\s.*>([\d-]{1,20})'
+        lokalita_dle_id = r'h1.(.*)?<span'
+
+        obsah = bs(r.content,'html.parser')
+        aktualne = re.findall(pocasi,str(obsah))
+        mesto = re.findall(lokalita_dle_id,str(obsah))[0]
+        aktualne = float(aktualne[0])
+
+        print(f'Zjistuji pocasi pro mesto {mesto}')
+
+
+        # Kontrola pocasi
+        if aktualne < 0:
+            print('Mrzne')
+        elif aktualne < 10:
+            print('Je sychravo')
+        elif aktualne < 20:
+            print('Uz to neni na bundu')
+        else:
+            print('Je teplo')
+
+    # Pokud stranka nefunguje, vypis nize uvedene
+    else:
+        print('Pocasi nelze zjistit')
+
+        
+except ValueError:
+    # Pokud hodnotu nelze prevet na cislo
+    print(f'Hodnota {mesto} neni cislo')
