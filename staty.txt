@@ -1,0 +1,8 @@
+zeme,pocet_obyvatel
+spanelsko,47398695
+polsko,37840001
+nemecko,83155031
+francie,67656682
+italie,59236213
+spanelsko,47398695
+polsko,37840001
