@@ -1,1 +1,12 @@
 
+1. Stáhněte si do PC tento dokument: https://github.com/petrrozkosny/python_1/blob/main/staty.txt
+2. Otevřete tento dokument za pomoci modulu csv, nápověda k modulu zde: https://docs.python.org/3/library/csv.html
+3. Čtěte hodnoty z csv a zjistěte maximální hodnotu ze sloupce pocet_obyvatel
+4. Vytvořte slovník zeme, který bude mít pár zeme:pocet_obyvatel
+5. Prochazejte jednotlive klice slovniku a zjistete,  jestli pro dany klic je stranka na https://cs.wiktionary.org
+  Za URL https://cs.wiktionary.org/wiki/ dosazujte hodnotu klice
+  Pokud stranka obsahuje text "Tato stránka neobsahuje", tak pro dany klic neexistuje zapis a vy dany klic smazte ze slovniku.
+  Pokud stranka neobsahuje text "Tato stránka zatím neexistuje", tak klic ponechte ve slovniku
+6. Spocitejte, pro kolik klicu (zemi) existuje zapis na https://cs.wiktionary.org, hodnotu vypiste do konzole, zaroven vypiste
+maximalni hodnotu techto (existujicich zemi), tj. maximalni hodnotu z paru zeme:pocet_obyvatel.
+
